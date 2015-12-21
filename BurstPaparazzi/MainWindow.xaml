@@ -5,24 +5,23 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:BurstPaparazzi"
         mc:Ignorable="d"
-        Title="BurstPaparazzi" Height="392.752" Width="670.358">
+        Title="BurstPaparazzi" Height="392.752" Width="670.358" Background="White" MinWidth="670" MinHeight="392" MaxWidth="670" MaxHeight="392">
     <Grid>
         <TabControl x:Name="tabControl">
-            <TabItem Header="TabItem">
+            <TabItem Header="Burst">
                 <Grid Background="#FFE5E5E5">
-                    <Button x:Name="button" Content="Button" Margin="469,13,39,280"/>
-                    <Button x:Name="button1" Content="Button" Margin="470,81,40,211"/>
-                    <TextBox x:Name="textBox" HorizontalAlignment="Left" Height="23" Margin="35,98,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="311"/>
-                    <Label x:Name="label" Content=".exe" HorizontalAlignment="Left" Margin="347,81,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="29.333"/>
+                    <Button x:Name="autoBurstButton" Content="AutoBurst" Margin="469,13,0,0" Height="42" VerticalAlignment="Top" HorizontalAlignment="Left" Width="148"/>
+                    <Button x:Name="burstItButton" Content="BurstIt" Margin="470,81,0,0" Height="43" VerticalAlignment="Top" HorizontalAlignment="Left" Width="146"/>
+                    <TextBox x:Name="textBox" Height="23" Margin="35,98,0,0" TextWrapping="Wrap" VerticalAlignment="Top" HorizontalAlignment="Left" Width="311"/>
+                    <Label x:Name="label" Content=".exe" Margin="347,81,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="29.333" HorizontalAlignment="Left" Width="70"/>
                 </Grid>
             </TabItem>
-            <TabItem Header="TabItem">
+            <TabItem Header="Backups">
                 <Grid Background="#FFE5E5E5">
-                    <ListBox x:Name="listBox" HorizontalAlignment="Left" Height="270" Margin="33,15,0,0" VerticalAlignment="Top" Width="424"/>
-                    <Button x:Name="button2" Content="Button" Margin="469,13,39,280"/>
+                    <ListBox x:Name="listBox" Height="270" Margin="33,15,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Width="424"/>
+                    <Button x:Name="recoverButton" Content="Recover" Margin="469,13,0,0" Height="42" VerticalAlignment="Top" HorizontalAlignment="Left" Width="148"/>
                 </Grid>
             </TabItem>
         </TabControl>
-
     </Grid>
 </Window>
