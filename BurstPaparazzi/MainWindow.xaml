@@ -5,8 +5,24 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:BurstPaparazzi"
         mc:Ignorable="d"
-        Title="MainWindow" Height="444.953" Width="722.634">
+        Title="BurstPaparazzi" Height="392.752" Width="670.358">
     <Grid>
+        <TabControl x:Name="tabControl">
+            <TabItem Header="TabItem">
+                <Grid Background="#FFE5E5E5">
+                    <Button x:Name="button" Content="Button" Margin="469,13,39,280"/>
+                    <Button x:Name="button1" Content="Button" Margin="470,81,40,211"/>
+                    <TextBox x:Name="textBox" HorizontalAlignment="Left" Height="23" Margin="35,98,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="311"/>
+                    <Label x:Name="label" Content=".exe" HorizontalAlignment="Left" Margin="347,81,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="29.333"/>
+                </Grid>
+            </TabItem>
+            <TabItem Header="TabItem">
+                <Grid Background="#FFE5E5E5">
+                    <ListBox x:Name="listBox" HorizontalAlignment="Left" Height="285" Margin="12,38,0,0" VerticalAlignment="Top" Width="482"/>
+                    <Button x:Name="button2" Content="Button" HorizontalAlignment="Left" Margin="544,60,0,0" VerticalAlignment="Top" Width="75"/>
+                </Grid>
+            </TabItem>
+        </TabControl>
 
     </Grid>
 </Window>
