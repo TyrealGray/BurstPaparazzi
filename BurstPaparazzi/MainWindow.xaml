@@ -7,12 +7,12 @@
         mc:Ignorable="d"
         Title="BurstPaparazzi" Height="392.752" Width="670.358" Background="White" MinWidth="670" MinHeight="392" MaxWidth="670" MaxHeight="392">
     <Grid>
-        <TabControl x:Name="tabControl">
+        <TabControl x:Name="mainTabControl">
             <TabItem Header="Burst">
                 <Grid Background="#FFE5E5E5">
                     <Button x:Name="autoBurstButton" Content="AutoBurst" Margin="469,13,0,0" Height="42" VerticalAlignment="Top" HorizontalAlignment="Left" Width="148"/>
                     <Button x:Name="burstItButton" Content="BurstIt" Margin="470,81,0,0" Height="43" VerticalAlignment="Top" HorizontalAlignment="Left" Width="146"/>
-                    <TextBox x:Name="textBox" Height="23" Margin="35,98,0,0" TextWrapping="Wrap" VerticalAlignment="Top" HorizontalAlignment="Left" Width="311"/>
+                    <TextBox x:Name="burstNameTextBox" Height="23" Margin="35,98,0,0" TextWrapping="Wrap" VerticalAlignment="Top" HorizontalAlignment="Left" Width="311"/>
                     <Label x:Name="label" Content=".exe" Margin="347,81,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="29.333" HorizontalAlignment="Left" Width="70"/>
                 </Grid>
             </TabItem>

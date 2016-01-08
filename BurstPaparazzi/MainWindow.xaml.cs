@@ -20,10 +20,25 @@ namespace BurstPaparazzi
     /// </summary>
     public partial class MainWindow : Window
     {
+        private MainTabControl m_mainTabControl = null;
 
         public MainWindow()
         {
             InitializeComponent();
+
+            InitInterface();
+
+            BindInterfaceEvent();
+        }
+
+        private void BindInterfaceEvent()
+        {
+            m_mainTabControl.BindEvent();
+        }
+
+        private void InitInterface()
+        {
+            m_mainTabControl = new MainTabControl(mainTabControl);
         }
 
     }

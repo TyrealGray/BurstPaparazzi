@@ -80,10 +80,5 @@ namespace BurstPaparazzi
         public static extern void Everything_GetResultFullPathNameW(int nIndex, StringBuilder lpString, int nMaxCount);
         [DllImport("Everything32.dll")]
         public static extern void Everything_Reset();
-
-        public int SetSearchFor(string lpSearchString)
-        {
-            return Everything_SetSearchW(lpSearchString);
-        }
     }
 }
