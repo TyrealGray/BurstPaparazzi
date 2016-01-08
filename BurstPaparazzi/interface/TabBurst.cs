@@ -1,4 +1,5 @@
-﻿using System.Diagnostics;
+﻿using System.Collections;
+using System.Diagnostics;
 using System.Windows;
 using System.Windows.Controls;
 
@@ -15,9 +16,37 @@ namespace BurstPaparazzi
 
         public void BindEvent()
         {
-            Button burstItButton = (Button)m_control.FindName("burstItButton");
+            ((Button)m_control.FindName("burstItButton")).Click += OnBurstItButtonClick;
 
-            burstItButton.Click += OnBurstItButtonClick;
+            ((Button)m_control.FindName("autoBurstButton")).Click += OnClickAutoBurstButton;
+        }
+
+        private void OnClickAutoBurstButton(object sender, RoutedEventArgs e)
+        {
+            ArrayList paparazziName = new ArrayList();
+
+            paparazziName.Add("tencentdl");
+            paparazziName.Add("tenioDL");
+            paparazziName.Add("ppap_startup");
+            paparazziName.Add("PPAP");
+
+            foreach (string name in paparazziName)
+            {
+                Process[] processes = Process.GetProcessesByName(name);
+
+                try
+                {
+                    foreach (Process p in processes)
+                    {
+                        p.Kill();
+                        p.Close();
+                    }
+                }
+                catch
+                {
+                    //do error
+                }
+            }
         }
 
         private void OnBurstItButtonClick(object sender, RoutedEventArgs e)
