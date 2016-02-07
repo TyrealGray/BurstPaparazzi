@@ -89,6 +89,9 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="core\ITerminator.cs" />
+    <Compile Include="core\NormalTerminator.cs" />
+    <Compile Include="core\TencentTerminator.cs" />
     <Compile Include="Everything.cs" />
     <Compile Include="interface\TabBurst.cs" />
     <Compile Include="MainWindow.xaml.cs">
