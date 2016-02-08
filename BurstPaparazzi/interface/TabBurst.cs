@@ -30,9 +30,9 @@ namespace BurstPaparazzi
         {
             List<string> stubbornPaparazzi = new List<string>();
 
-            stubbornPaparazzi = m_normalTerminator.terminate();
+            stubbornPaparazzi.AddRange(m_normalTerminator.terminate());
 
-            stubbornPaparazzi = m_tencentTerminator.terminate();
+            stubbornPaparazzi.AddRange(m_tencentTerminator.terminate());
 
         }
 
