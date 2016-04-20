@@ -16,7 +16,6 @@ namespace BurstPaparazzi.core
             m_terminateList.Add("tenioDL");
         }
 
-
         public List<string> terminate()
         {
             List<string> stubbornList = new List<string>();

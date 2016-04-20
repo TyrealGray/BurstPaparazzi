@@ -10,7 +10,6 @@ namespace BurstPaparazzi
 
     class Everything
     {
-
         const int EVERYTHING_OK = 0;
         const int EVERYTHING_ERROR_MEMORY = 1;
         const int EVERYTHING_ERROR_IPC = 2;

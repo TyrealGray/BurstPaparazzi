@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Text;
 
 namespace BurstPaparazzi.core
 {
@@ -47,6 +48,26 @@ namespace BurstPaparazzi.core
             catch
             {
                 return false;
+            }
+        }
+
+        static public void isolate(string name)
+        {
+            const int bufsize = 260;
+            StringBuilder buf = new StringBuilder(bufsize);
+
+            // set the search
+            Everything.Everything_SetSearchW(name);
+
+            // execute the query
+            Everything.Everything_QueryW(true);
+
+            for (int index = 0; index < Everything.Everything_GetNumResults(); index++)
+            {
+                // get the result's full path and file name.
+                Everything.Everything_GetResultFullPathNameW(index, buf, bufsize);
+
+                //TODO parse buf
             }
         }
     }
