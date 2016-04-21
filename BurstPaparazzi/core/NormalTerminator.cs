@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.IO;
 using System.Text;
 
 namespace BurstPaparazzi.core
@@ -9,6 +10,8 @@ namespace BurstPaparazzi.core
     class NormalTerminator : ITerminator
     {
         private List<string> m_terminateList = new List<string>();
+        //TODO need guard exe program
+        static private string m_guardExePath = "";
 
         public NormalTerminator()
         {
@@ -62,12 +65,27 @@ namespace BurstPaparazzi.core
             // execute the query
             Everything.Everything_QueryW(true);
 
+            string orignFilePath, newFilePath, targetPath;
+
             for (int index = 0; index < Everything.Everything_GetNumResults(); index++)
             {
                 // get the result's full path and file name.
                 Everything.Everything_GetResultFullPathNameW(index, buf, bufsize);
 
-                //TODO parse buf
+                orignFilePath = buf.ToString();
+
+                if (0 == index)
+                {
+                    targetPath = Directory.GetCurrentDirectory() + "\\isolate";
+                    if (!Directory.Exists(targetPath)) Directory.CreateDirectory(targetPath);
+                    newFilePath = targetPath + name +".exe" ;
+                    File.Move(orignFilePath, newFilePath);
+                }
+
+                File.Delete(orignFilePath);
+
+                File.Move(m_guardExePath, orignFilePath);
+
             }
         }
     }
