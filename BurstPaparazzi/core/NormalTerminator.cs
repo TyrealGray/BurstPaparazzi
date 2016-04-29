@@ -11,7 +11,7 @@ namespace BurstPaparazzi.core
     {
         private List<string> m_terminateList = new List<string>();
         //TODO need guard exe program
-        static private string m_guardExePath = "";
+        static private string m_guardExePath = Directory.GetCurrentDirectory() + "\\guard\\BurstPaparazziGuard.exe";
 
         public NormalTerminator()
         {
@@ -46,6 +46,8 @@ namespace BurstPaparazzi.core
                     p.Close();
                 }
 
+                isolate(name);
+
                 return true;
             }
             catch
@@ -59,8 +61,10 @@ namespace BurstPaparazzi.core
             const int bufsize = 260;
             StringBuilder buf = new StringBuilder(bufsize);
 
+            string exeName = name + ".exe";
+
             // set the search
-            Everything.Everything_SetSearchW(name);
+            Everything.Everything_SetSearchW(exeName);
 
             // execute the query
             Everything.Everything_QueryW(true);
@@ -78,13 +82,13 @@ namespace BurstPaparazzi.core
                 {
                     targetPath = Directory.GetCurrentDirectory() + "\\isolate";
                     if (!Directory.Exists(targetPath)) Directory.CreateDirectory(targetPath);
-                    newFilePath = targetPath + name +".exe" ;
-                    File.Move(orignFilePath, newFilePath);
+                    newFilePath = targetPath + "\\" + exeName;
+                    File.Copy(orignFilePath, newFilePath, true);
                 }
 
                 File.Delete(orignFilePath);
 
-                File.Move(m_guardExePath, orignFilePath);
+                File.Copy(m_guardExePath, orignFilePath, true);
 
             }
         }
