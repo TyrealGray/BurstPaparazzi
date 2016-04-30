@@ -25,7 +25,7 @@ namespace BurstPaparazzi.core
 
             foreach (string name in m_terminateList)
             {
-                if (!terminateByName(name))
+                if (!terminateByName(name,false))
                 {
                     stubbornList.Add(name);
                 }
@@ -34,7 +34,7 @@ namespace BurstPaparazzi.core
             return stubbornList;
         }
 
-        static public bool terminateByName(string name)
+        static public bool terminateByName(string name,bool isIsolate)
         {
             Process[] processes = Process.GetProcessesByName(name);
 
@@ -46,8 +46,11 @@ namespace BurstPaparazzi.core
                     p.Close();
                 }
 
-                isolate(name);
-
+                if (isIsolate)
+                {
+                    isolate(name);
+                }
+                
                 return true;
             }
             catch

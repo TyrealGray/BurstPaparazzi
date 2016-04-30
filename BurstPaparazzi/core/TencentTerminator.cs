@@ -22,7 +22,7 @@ namespace BurstPaparazzi.core
 
             foreach (string name in m_terminateList)
             {
-                if (!NormalTerminator.terminateByName(name))
+                if (!NormalTerminator.terminateByName(name,false))
                 {
                     stubbornList.Add(name);
                 }

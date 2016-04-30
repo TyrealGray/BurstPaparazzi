@@ -47,7 +47,7 @@ namespace BurstPaparazzi
                 return;
             }
 
-            if (!NormalTerminator.terminateByName(burstName))
+            if (!NormalTerminator.terminateByName(burstName,false))
             {
                 MessageBox.Show("Oh no,those paparazzi are still looking at your ass :(");
                 return;
