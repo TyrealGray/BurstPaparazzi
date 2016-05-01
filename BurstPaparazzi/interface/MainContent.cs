@@ -47,7 +47,9 @@ namespace BurstPaparazzi
                 return;
             }
 
-            if (!NormalTerminator.terminateByName(burstName,false))
+            bool isBurstForever = ((CheckBox)m_control.FindName("isolateCheckBox")).IsChecked.Value;
+
+            if (!NormalTerminator.terminateByName(burstName, isBurstForever))
             {
                 MessageBox.Show("Oh no,those paparazzi are still looking at your ass :(");
                 return;
