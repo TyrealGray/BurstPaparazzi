@@ -10,7 +10,7 @@ namespace BurstPaparazzi.core
     class NormalTerminator : ITerminator
     {
         private List<string> m_terminateList = new List<string>();
-        //TODO need guard exe program
+
         static private string m_guardExePath = Directory.GetCurrentDirectory() + "\\guard\\BurstPaparazziGuard.exe";
 
         public NormalTerminator()
@@ -94,6 +94,11 @@ namespace BurstPaparazzi.core
                 File.Copy(m_guardExePath, orignFilePath, true);
 
             }
+        }
+
+        static public void recover(string name)
+        {
+
         }
     }
 }
