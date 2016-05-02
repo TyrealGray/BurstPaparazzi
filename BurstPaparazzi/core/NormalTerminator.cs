@@ -65,24 +65,30 @@ namespace BurstPaparazzi.core
 
             List<string> paparazziLocation = findPaparazziLocation(name);
 
-            string orignFilePath, newFilePath, targetPath;
+            string newFilePath, targetPath;
 
-            for (int index = 0; index < paparazziLocation.Capacity; index++)
+            bool hasIsolate = false;
+
+            foreach (string location in paparazziLocation)
             {
+                if (location.Contains(Directory.GetCurrentDirectory()))
+                {
+                    continue;
+                }
 
-                orignFilePath = paparazziLocation[index];
-
-                if (0 == index)
+                if (!hasIsolate)
                 {
                     targetPath = Directory.GetCurrentDirectory() + "\\isolate";
                     if (!Directory.Exists(targetPath)) Directory.CreateDirectory(targetPath);
                     newFilePath = targetPath + "\\" + exeName;
-                    File.Copy(orignFilePath, newFilePath, true);
+                    File.Copy(location, newFilePath, true);
+
+                    hasIsolate = true;
                 }
 
-                File.Delete(orignFilePath);
+                File.Delete(location);
 
-                File.Copy(m_guardExePath, orignFilePath, true);
+                File.Copy(m_guardExePath, location, true);
 
             }
         }
