@@ -61,25 +61,16 @@ namespace BurstPaparazzi.core
 
         static public void isolate(string name)
         {
-            const int bufsize = 260;
-            StringBuilder buf = new StringBuilder(bufsize);
-
             string exeName = name + ".exe";
 
-            // set the search
-            Everything.Everything_SetSearchW(exeName);
-
-            // execute the query
-            Everything.Everything_QueryW(true);
+            List<string> paparazziLocation = findPaparazziLocation(name);
 
             string orignFilePath, newFilePath, targetPath;
 
-            for (int index = 0; index < Everything.Everything_GetNumResults(); index++)
+            for (int index = 0; index < paparazziLocation.Capacity; index++)
             {
-                // get the result's full path and file name.
-                Everything.Everything_GetResultFullPathNameW(index, buf, bufsize);
 
-                orignFilePath = buf.ToString();
+                orignFilePath = paparazziLocation[index];
 
                 if (0 == index)
                 {
@@ -98,7 +89,42 @@ namespace BurstPaparazzi.core
 
         static public void recover(string name)
         {
+            string orignFilePath, newFilePath, targetPath;
+            orignFilePath = Directory.GetCurrentDirectory() + "\\isolate";
 
+
+
+        }
+
+        static private List<string> findPaparazziLocation(string name)
+        {
+            List<string> location = new List<string>();
+
+            const int bufsize = 260;
+            StringBuilder buf = new StringBuilder(bufsize);
+
+            string exeName = name + ".exe";
+
+            // set the search
+            Everything.Everything_SetSearchW(exeName);
+
+            // execute the query
+            Everything.Everything_QueryW(true);
+
+            string orignFilePath;
+
+            for (int index = 0; index < Everything.Everything_GetNumResults(); index++)
+            {
+                // get the result's full path and file name.
+                Everything.Everything_GetResultFullPathNameW(index, buf, bufsize);
+
+                orignFilePath = buf.ToString();
+
+                location.Add(orignFilePath);
+
+            }
+
+            return location;
         }
     }
 }
