@@ -89,10 +89,21 @@ namespace BurstPaparazzi.core
 
         static public void recover(string name)
         {
-            string orignFilePath, newFilePath, targetPath;
-            orignFilePath = Directory.GetCurrentDirectory() + "\\isolate";
+            string orignFilePath = Directory.GetCurrentDirectory() + "\\isolate\\"+ name+".exe";
 
+            List<string> paparazziLocation = findPaparazziLocation(name);
 
+            foreach(string location in paparazziLocation)
+            {
+                if (location.Contains(Directory.GetCurrentDirectory()))
+                {
+                    continue;
+                }
+
+                File.Copy(orignFilePath, location, true);
+            }
+
+            File.Delete(orignFilePath);
 
         }
 
