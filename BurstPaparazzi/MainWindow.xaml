@@ -19,7 +19,7 @@
             </TabItem>
             <TabItem Header="Backups">
                 <Grid Background="#FFE5E5E5">
-                    <ListBox x:Name="listBox" Height="270" Margin="33,15,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Width="424"/>
+                    <ListBox x:Name="isolateList" Height="270" Margin="33,15,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Width="424"/>
                     <Button x:Name="recoverButton" Content="Recover" Margin="469,13,0,0" Height="42" VerticalAlignment="Top" HorizontalAlignment="Left" Width="148"/>
                 </Grid>
             </TabItem>

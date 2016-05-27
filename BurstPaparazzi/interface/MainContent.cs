@@ -4,6 +4,7 @@ using System.Windows;
 using System.Windows.Controls;
 using BurstPaparazzi.core;
 using System.Collections.Generic;
+using System.IO;
 
 namespace BurstPaparazzi
 {
@@ -17,6 +18,7 @@ namespace BurstPaparazzi
         public MainTabControl(TabControl control)
         {
             m_control = control;
+            InitData();
         }
 
         public void BindEvent()
@@ -56,6 +58,20 @@ namespace BurstPaparazzi
             }
 
             MessageBox.Show("Paparazzi now fly in sky :)");
+        }
+
+        private void InitData()
+        {
+            ListBox isolateList = (ListBox)m_control.FindName("isolateList");
+
+            string isolatePath = Directory.GetCurrentDirectory() + "\\isolate";
+
+            DirectoryInfo folder = new DirectoryInfo(isolatePath);
+
+            foreach (FileInfo file in folder.GetFiles("*.exe"))
+            {
+                isolateList.Items.Add(file.FullName);
+            }
         }
     }
 }
