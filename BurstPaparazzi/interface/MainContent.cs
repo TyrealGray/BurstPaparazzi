@@ -70,7 +70,7 @@ namespace BurstPaparazzi
 
             foreach (FileInfo file in folder.GetFiles("*.exe"))
             {
-                isolateList.Items.Add(file.FullName);
+                isolateList.Items.Add(file.Name);
             }
         }
     }
