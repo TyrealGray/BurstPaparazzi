@@ -63,6 +63,18 @@ namespace BurstPaparazzi.core
         {
             string exeName = name + ".exe";
 
+            string isolatePath = Directory.GetCurrentDirectory() + "\\isolate";
+
+            DirectoryInfo folder = new DirectoryInfo(isolatePath);
+
+            foreach (FileInfo file in folder.GetFiles("*.exe"))
+            {
+                if(exeName == file.Name)
+                {
+                    return;
+                }
+            }
+
             List<string> paparazziLocation = findPaparazziLocation(name);
 
             string newFilePath, targetPath;
@@ -71,10 +83,6 @@ namespace BurstPaparazzi.core
 
             foreach (string location in paparazziLocation)
             {
-                if (location.Contains(Directory.GetCurrentDirectory()))
-                {
-                    continue;
-                }
 
                 if (!hasIsolate)
                 {
