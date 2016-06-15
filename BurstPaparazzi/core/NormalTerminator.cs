@@ -63,6 +63,11 @@ namespace BurstPaparazzi.core
         {
             string exeName = name + ".exe";
 
+            if (isIgnored(exeName))
+            {
+                return;
+            }
+
             string isolatePath = Directory.GetCurrentDirectory() + "\\isolate";
 
             DirectoryInfo folder = new DirectoryInfo(isolatePath);
@@ -99,6 +104,24 @@ namespace BurstPaparazzi.core
                 File.Copy(m_guardExePath, location, true);
 
             }
+        }
+
+        static private bool isIgnored(string exeName)
+        {
+            bool shouldBeIgnore = false;
+
+            switch (exeName)
+            {
+                case "svchost.exe":
+                case "smss.exe":
+                    shouldBeIgnore = true;
+                    break;
+                default:
+                    shouldBeIgnore = false;
+                    break;
+            }
+
+            return shouldBeIgnore;
         }
 
         static public void recover(string name)
