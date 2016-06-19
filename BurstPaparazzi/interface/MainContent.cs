@@ -28,6 +28,13 @@ namespace BurstPaparazzi
             ((Button)m_control.FindName("autoBurstButton")).Click += OnClickAutoBurstButton;
         }
 
+        private void OnClickRecoverButton(object sender, RoutedEventArgs e)
+        {
+            ListBox isolateList = (ListBox)m_control.FindName("isolateList");
+
+            //TODO recover a exe
+        }
+
         private void OnClickAutoBurstButton(object sender, RoutedEventArgs e)
         {
             List<string> stubbornPaparazzi = new List<string>();
