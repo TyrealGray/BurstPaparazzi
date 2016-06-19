@@ -49,6 +49,7 @@ namespace BurstPaparazzi.core
                 if (isIsolate)
                 {
                     isolate(name);
+                    //TODO add to recover list
                 }
                 
                 return true;
@@ -124,9 +125,9 @@ namespace BurstPaparazzi.core
             return shouldBeIgnore;
         }
 
-        static public void recover(string name)
+        public void recover(string name)
         {
-            string orignFilePath = Directory.GetCurrentDirectory() + "\\isolate\\"+ name+".exe";
+            string orignFilePath = Directory.GetCurrentDirectory() + "\\isolate\\"+ name;
 
             List<string> paparazziLocation = findPaparazziLocation(name);
 
