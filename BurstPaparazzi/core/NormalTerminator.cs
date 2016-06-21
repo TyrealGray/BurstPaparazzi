@@ -139,6 +139,8 @@ namespace BurstPaparazzi.core
                 }
 
                 File.Copy(orignFilePath, location, true);
+
+                //TODO need handle io error here
             }
 
             File.Delete(orignFilePath);

@@ -37,7 +37,7 @@ namespace BurstPaparazzi
 
             m_normalTerminator.recover(isolateList.SelectedItem.ToString());
 
-            //TODO clear list
+            isolateList.Items.Remove(isolateList.SelectedItem);
         }
 
         private void OnClickAutoBurstButton(object sender, RoutedEventArgs e)
