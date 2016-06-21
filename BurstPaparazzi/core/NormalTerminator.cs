@@ -49,7 +49,6 @@ namespace BurstPaparazzi.core
                 if (isIsolate)
                 {
                     isolate(name);
-                    //TODO add to recover list
                 }
                 
                 return true;

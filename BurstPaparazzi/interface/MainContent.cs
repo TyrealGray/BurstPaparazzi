@@ -18,7 +18,7 @@ namespace BurstPaparazzi
         public MainTabControl(TabControl control)
         {
             m_control = control;
-            InitData();
+            refreshIsolateList();
         }
 
         public void BindEvent()
@@ -37,7 +37,7 @@ namespace BurstPaparazzi
 
             m_normalTerminator.recover(isolateList.SelectedItem.ToString());
 
-            isolateList.Items.Remove(isolateList.SelectedItem);
+            refreshIsolateList();
         }
 
         private void OnClickAutoBurstButton(object sender, RoutedEventArgs e)
@@ -48,6 +48,7 @@ namespace BurstPaparazzi
 
             stubbornPaparazzi.AddRange(m_tencentTerminator.terminate());
 
+            refreshIsolateList();
         }
 
         private void OnBurstItButtonClick(object sender, RoutedEventArgs e)
@@ -66,15 +67,20 @@ namespace BurstPaparazzi
             if (!NormalTerminator.terminateByName(burstName, isBurstForever))
             {
                 MessageBox.Show("Oh no,those paparazzi are still looking at your ass :(");
-                return;
+            }
+            else
+            {
+                MessageBox.Show("Paparazzi now fly in sky :)");
             }
 
-            MessageBox.Show("Paparazzi now fly in sky :)");
+            refreshIsolateList();
         }
 
-        private void InitData()
+        private void refreshIsolateList()
         {
             ListBox isolateList = (ListBox)m_control.FindName("isolateList");
+
+            isolateList.Items.Clear();
 
             string isolatePath = Directory.GetCurrentDirectory() + "\\isolate";
 
