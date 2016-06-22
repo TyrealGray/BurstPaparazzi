@@ -8,14 +8,14 @@ using System.IO;
 
 namespace BurstPaparazzi
 {
-    class MainTabControl
+    class MainContent
     {
         private TabControl m_control = null;
 
         private NormalTerminator m_normalTerminator = new NormalTerminator();
         private TencentTerminator m_tencentTerminator = new TencentTerminator();
 
-        public MainTabControl(TabControl control)
+        public MainContent(TabControl control)
         {
             m_control = control;
             refreshIsolateList();

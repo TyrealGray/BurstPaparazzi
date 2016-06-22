@@ -1,0 +1,27 @@
+﻿<Window x:Class="BurstPaparazzi.LogWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:BurstPaparazzi"
+        mc:Ignorable="d"
+        Title="LogWindow" Height="636.971" Width="607.394">
+    <Grid>
+        <TextBlock x:Name="logBlock" HorizontalAlignment="Left" Margin="10,155,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="441" Width="579"/>
+        <Image x:Name="icon" HorizontalAlignment="Left" Height="100" Margin="10,29,0,0" VerticalAlignment="Top" Width="100" Source="BurstPaparazziIcon.ico" Stretch="Fill">
+            <Image.OpacityMask>
+                <ImageBrush ImageSource="BurstPaparazziIcon.ico">
+                    <ImageBrush.RelativeTransform>
+                        <TransformGroup>
+                            <ScaleTransform/>
+                            <SkewTransform/>
+                            <RotateTransform/>
+                            <TranslateTransform/>
+                        </TransformGroup>
+                    </ImageBrush.RelativeTransform>
+                </ImageBrush>
+            </Image.OpacityMask>
+        </Image>
+
+    </Grid>
+</Window>

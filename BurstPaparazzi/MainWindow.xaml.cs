@@ -20,7 +20,7 @@ namespace BurstPaparazzi
     /// </summary>
     public partial class MainWindow : Window
     {
-        private MainTabControl m_mainTabControl = null;
+        private MainContent m_mainContent = null;
 
         public MainWindow()
         {
@@ -33,12 +33,15 @@ namespace BurstPaparazzi
 
         private void BindInterfaceEvent()
         {
-            m_mainTabControl.BindEvent();
+            m_mainContent.BindEvent();
         }
 
         private void InitInterface()
         {
-            m_mainTabControl = new MainTabControl(mainTabControl);
+            m_mainContent = new MainContent(mainTabControl);
+
+            LogWindow log = new LogWindow();
+            log.Show();
         }
 
     }
