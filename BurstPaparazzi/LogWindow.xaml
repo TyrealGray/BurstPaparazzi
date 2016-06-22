@@ -5,10 +5,10 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:BurstPaparazzi"
         mc:Ignorable="d"
-        Title="LogWindow" Height="636.971" Width="607.394">
+        Title="LogWindow" Height="636.971" Width="607.394" Icon="BurstPaparazziIcon.ico">
     <Grid>
-        <TextBlock x:Name="logBlock" HorizontalAlignment="Left" Margin="10,155,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="441" Width="579"/>
-        <Image x:Name="icon" HorizontalAlignment="Left" Height="100" Margin="10,29,0,0" VerticalAlignment="Top" Width="100" Source="BurstPaparazziIcon.ico" Stretch="Fill">
+        <TextBlock x:Name="logBlock" HorizontalAlignment="Left" Margin="10,65,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="531" Width="579"/>
+        <Image x:Name="icon" HorizontalAlignment="Left" Height="50" Margin="10,10,0,0" VerticalAlignment="Top" Width="50" Source="BurstPaparazziIcon.ico" Stretch="Fill">
             <Image.OpacityMask>
                 <ImageBrush ImageSource="BurstPaparazziIcon.ico">
                     <ImageBrush.RelativeTransform>

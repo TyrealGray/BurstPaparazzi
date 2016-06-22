@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:BurstPaparazzi"
         mc:Ignorable="d"
-        Title="BurstPaparazzi" Height="392.752" Width="670.358" Background="White" MinWidth="670" MinHeight="392" MaxWidth="670" MaxHeight="392">
+        Title="BurstPaparazzi" Height="392.752" Width="670.358" Background="White" MinWidth="670" MinHeight="392" MaxWidth="670" MaxHeight="392" Icon="BurstPaparazziIcon.ico">
     <Grid>
         <TabControl x:Name="mainTabControl">
             <TabItem Header="Burst">
