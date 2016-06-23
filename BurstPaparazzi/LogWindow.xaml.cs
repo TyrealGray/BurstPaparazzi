@@ -23,5 +23,14 @@ namespace BurstPaparazzi
         {
             InitializeComponent();
         }
+
+        public void printLog(List<string> logInfo)
+        {
+            foreach (string info in logInfo)
+            {
+                logBlock.Inlines.Add(new Run(info));
+                logBlock.Inlines.Add(new LineBreak());
+            }
+        }
     }
 }
