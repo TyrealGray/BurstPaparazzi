@@ -40,7 +40,6 @@ namespace BurstPaparazzi
         {
             m_mainContent = new MainContent(mainTabControl);
 
-
             //test code
             LogWindow log = new LogWindow();
             log.Show();
@@ -55,5 +54,9 @@ namespace BurstPaparazzi
             log2.Show();
         }
 
+        private void onClosing(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            Environment.Exit(Environment.ExitCode);
+        }
     }
 }
