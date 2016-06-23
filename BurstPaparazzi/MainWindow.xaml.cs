@@ -40,8 +40,19 @@ namespace BurstPaparazzi
         {
             m_mainContent = new MainContent(mainTabControl);
 
+
+            //test code
             LogWindow log = new LogWindow();
             log.Show();
+
+            List<string> testlist = new List<string>();
+            testlist.Add("1");
+            testlist.Add("2");
+
+            log.printLog(testlist);
+
+            LogWindow log2 = new LogWindow();
+            log2.Show();
         }
 
     }

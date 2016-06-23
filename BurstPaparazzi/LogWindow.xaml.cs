@@ -26,9 +26,11 @@ namespace BurstPaparazzi
 
         public void printLog(List<string> logInfo)
         {
+            string logPrefix = "Cannot burst ";
+
             foreach (string info in logInfo)
             {
-                logBlock.Inlines.Add(new Run(info));
+                logBlock.Inlines.Add(new Run(logPrefix + info));
                 logBlock.Inlines.Add(new LineBreak());
             }
         }
