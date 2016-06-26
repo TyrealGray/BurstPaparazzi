@@ -106,24 +106,6 @@ namespace BurstPaparazzi.core
             }
         }
 
-        static private bool isIgnored(string exeName)
-        {
-            bool shouldBeIgnore = false;
-
-            switch (exeName)
-            {
-                case "svchost.exe":
-                case "smss.exe":
-                    shouldBeIgnore = true;
-                    break;
-                default:
-                    shouldBeIgnore = false;
-                    break;
-            }
-
-            return shouldBeIgnore;
-        }
-
         public void recover(string name)
         {
             string orignFilePath = Directory.GetCurrentDirectory() + "\\isolate\\"+ name;
@@ -175,6 +157,30 @@ namespace BurstPaparazzi.core
             }
 
             return location;
+        }
+
+        static private bool isIgnored(string exeName)
+        {
+            bool shouldBeIgnore = false;
+
+            //TODO should make a list array
+            switch (exeName)
+            {
+                case "svchost.exe":
+                case "smss.exe":
+                case "conhost.exe":
+                case "chrome.exe":
+                case "csrss.exe":
+                case "devenv.exe":
+                case "lantern.exe":
+                    shouldBeIgnore = true;
+                    break;
+                default:
+                    shouldBeIgnore = false;
+                    break;
+            }
+
+            return shouldBeIgnore;
         }
     }
 }
