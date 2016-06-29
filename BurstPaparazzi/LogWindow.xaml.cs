@@ -14,7 +14,7 @@ namespace BurstPaparazzi
             InitializeComponent();
         }
 
-        public void printLog(List<string> logInfo)
+        public void printBurstError(List<string> logInfo)
         {
             string logPrefix = "Cannot burst ";
 
@@ -23,6 +23,12 @@ namespace BurstPaparazzi
                 logBlock.Inlines.Add(new Run(logPrefix + info));
                 logBlock.Inlines.Add(new LineBreak());
             }
+        }
+
+        public void printLog(string logInfo)
+        {
+            string logPrefix = "[info]: ";
+            logBlock.Inlines.Add(new Run(logPrefix + logInfo));
         }
     }
 }
