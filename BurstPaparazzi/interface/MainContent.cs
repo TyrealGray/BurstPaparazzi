@@ -48,6 +48,11 @@ namespace BurstPaparazzi
 
             stubbornPaparazzi.AddRange(m_tencentTerminator.terminate());
 
+            LogWindow log = new LogWindow();
+            
+            log.printLog(stubbornPaparazzi);
+            log.Show();
+
             refreshIsolateList();
         }
 
@@ -63,15 +68,21 @@ namespace BurstPaparazzi
             }
 
             bool isBurstForever = ((CheckBox)m_control.FindName("isolateCheckBox")).IsChecked.Value;
+            List<string> result = new List<string>();
 
             if (!NormalTerminator.terminateByName(burstName, isBurstForever))
             {
-                MessageBox.Show("Oh no,those paparazzi are still looking at your ass :(");
+                result.Add(burstName + ".exe");
             }
             else
             {
                 MessageBox.Show("Paparazzi now fly in sky :)");
             }
+
+            LogWindow log = new LogWindow();
+
+            log.printLog(result);
+            log.Show();
 
             refreshIsolateList();
         }
