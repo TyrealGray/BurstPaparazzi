@@ -47,8 +47,8 @@ namespace BurstPaparazzi
             stubbornPaparazzi.AddRange(m_tencentTerminator.terminate());
 
             LogWindow log = new LogWindow();
-            
-            log.printLog(stubbornPaparazzi);
+
+            log.printBurstError(stubbornPaparazzi);
             log.Show();
 
             refreshIsolateList();
@@ -66,20 +66,20 @@ namespace BurstPaparazzi
             }
 
             bool isBurstForever = ((CheckBox)m_control.FindName("isolateCheckBox")).IsChecked.Value;
-            List<string> result = new List<string>();
+            LogWindow log = new LogWindow();
 
             if (!NormalTerminator.terminateByName(burstName, isBurstForever))
             {
+                List<string> result = new List<string>();
                 result.Add(burstName + ".exe");
+
+                log.printBurstError(result);
             }
             else
             {
-                MessageBox.Show("Paparazzi now fly in sky :)");
+                log.printLog(burstName + ".exe now fly in sky :)");
             }
 
-            LogWindow log = new LogWindow();
-
-            log.printLog(result);
             log.Show();
 
             refreshIsolateList();
