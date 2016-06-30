@@ -35,6 +35,12 @@ namespace BurstPaparazzi
 
             m_normalTerminator.recover(isolateList.SelectedItem.ToString());
 
+            LogWindow log = new LogWindow();
+
+            log.printLog(isolateList.SelectedItem.ToString() + " now is recovered");
+
+            log.Show();
+
             refreshIsolateList();
         }
 
