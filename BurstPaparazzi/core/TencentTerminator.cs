@@ -9,7 +9,7 @@ namespace BurstPaparazzi.core
        public TencentTerminator()
         {
             m_terminateList.Add("tencentdl");
-            m_terminateList.Add("tenioDL");
+            m_terminateList.Add("TenioDL");
         }
 
         public List<string> terminate()

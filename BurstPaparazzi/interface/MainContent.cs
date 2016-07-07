@@ -54,7 +54,15 @@ namespace BurstPaparazzi
 
             LogWindow log = new LogWindow();
 
-            log.printBurstError(stubbornPaparazzi);
+            if (0 == stubbornPaparazzi.Count)
+            {
+                log.printLog("succeed.");
+            }
+            else
+            {
+                log.printBurstError(stubbornPaparazzi);
+            }
+
             log.Show();
 
             refreshIsolateList();
