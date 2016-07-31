@@ -3,6 +3,7 @@ using System.Windows.Controls;
 using BurstPaparazzi.core;
 using System.Collections.Generic;
 using System.IO;
+using System;
 
 namespace BurstPaparazzi
 {
@@ -17,6 +18,27 @@ namespace BurstPaparazzi
         {
             m_control = control;
             refreshIsolateList();
+
+        }
+
+        private void watchBegin()
+        {
+            System.Windows.Threading.DispatcherTimer dispatcherTimer = new System.Windows.Threading.DispatcherTimer();
+            dispatcherTimer.Tick += new EventHandler(WatcherTimer);
+            dispatcherTimer.Interval = new TimeSpan(0,0 , 30);
+            dispatcherTimer.Start();
+        }
+
+        private void WatcherTimer(object sender, EventArgs e)
+        {
+            string isolatePath = Directory.GetCurrentDirectory() + "\\isolate";
+
+            DirectoryInfo folder = new DirectoryInfo(isolatePath);
+
+            foreach (FileInfo file in folder.GetFiles("*.exe"))
+            {
+                NormalTerminator.terminateByName(file.Name, false);
+            }
         }
 
         public void BindEvent()
@@ -26,7 +48,6 @@ namespace BurstPaparazzi
             ((Button)m_control.FindName("autoBurstButton")).Click += OnClickAutoBurstButton;
 
             ((Button)m_control.FindName("recoverButton")).Click += OnClickRecoverButton;
-
         }
 
         private void OnClickRecoverButton(object sender, RoutedEventArgs e)
