@@ -18,14 +18,14 @@ namespace BurstPaparazzi
         {
             m_control = control;
             refreshIsolateList();
-
+            watchBegin();
         }
 
         private void watchBegin()
         {
             System.Windows.Threading.DispatcherTimer dispatcherTimer = new System.Windows.Threading.DispatcherTimer();
             dispatcherTimer.Tick += new EventHandler(WatcherTimer);
-            dispatcherTimer.Interval = new TimeSpan(0,0 , 30);
+            dispatcherTimer.Interval = new TimeSpan(0, 0 , 30);
             dispatcherTimer.Start();
         }
 
