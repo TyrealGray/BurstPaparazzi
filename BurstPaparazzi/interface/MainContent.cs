@@ -37,7 +37,8 @@ namespace BurstPaparazzi
 
             foreach (FileInfo file in folder.GetFiles("*.exe"))
             {
-                NormalTerminator.terminateByName(file.Name, false);
+                string name = file.Name.Remove(file.Name.IndexOf("."), 4);
+                NormalTerminator.terminateByName(name, false);
             }
         }
 

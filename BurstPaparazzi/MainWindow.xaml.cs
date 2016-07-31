@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Diagnostics;
 using System.Windows;
 using System.Windows.Forms;
 
@@ -17,10 +18,22 @@ namespace BurstPaparazzi
         {
             InitializeComponent();
 
+            CheckEverything();
+
             InitInterface();
 
             BindInterfaceEvent();
+        }
 
+        private void CheckEverything()
+        {
+            Process[] processes = Process.GetProcessesByName("Everything");
+
+            if (0 == processes.Length)
+            {
+                System.Windows.MessageBox.Show("Please open Everyhing first");
+                this.Close();
+            }
         }
 
         private void BindInterfaceEvent()
