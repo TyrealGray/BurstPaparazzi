@@ -18,28 +18,7 @@ namespace BurstPaparazzi
         {
             m_control = control;
             refreshIsolateList();
-            watchBegin();
-        }
-
-        private void watchBegin()
-        {
-            System.Windows.Threading.DispatcherTimer dispatcherTimer = new System.Windows.Threading.DispatcherTimer();
-            dispatcherTimer.Tick += new EventHandler(WatcherTimer);
-            dispatcherTimer.Interval = new TimeSpan(0, 0 , 30);
-            dispatcherTimer.Start();
-        }
-
-        private void WatcherTimer(object sender, EventArgs e)
-        {
-            string isolatePath = Directory.GetCurrentDirectory() + "\\isolate";
-
-            DirectoryInfo folder = new DirectoryInfo(isolatePath);
-
-            foreach (FileInfo file in folder.GetFiles("*.exe"))
-            {
-                string name = file.Name.Remove(file.Name.IndexOf("."), 4);
-                NormalTerminator.terminateByName(name, false);
-            }
+            m_normalTerminator.watchBegin();
         }
 
         public void BindEvent()
