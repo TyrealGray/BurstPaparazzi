@@ -9,7 +9,7 @@ namespace BurstPaparazzi.core
     {
         private List<string> m_terminateList = new List<string>();
 
-        static private string m_guardExePath = Directory.GetCurrentDirectory() + "\\guard\\BurstPaparazziGuard.exe";
+        static private string m_guardExePath = Directory.GetCurrentDirectory() + "\\guard\\NoWindowGuard.exe";
 
         public NormalTerminator()
         {
