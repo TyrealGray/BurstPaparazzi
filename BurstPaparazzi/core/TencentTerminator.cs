@@ -12,13 +12,13 @@ namespace BurstPaparazzi.core
             m_terminateList.Add("TenioDL");
         }
 
-        public List<string> terminate()
+        public List<string> terminate(bool isIsolate = false)
         {
             List<string> stubbornList = new List<string>();
 
             foreach (string name in m_terminateList)
             {
-                if (!NormalTerminator.terminateByName(name,false))
+                if (!NormalTerminator.terminateByName(name, isIsolate))
                 {
                     stubbornList.Add(name);
                 }

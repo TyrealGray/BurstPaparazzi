@@ -39,13 +39,13 @@ namespace BurstPaparazzi.core
             }
         }
 
-        public List<string> terminate()
+        public List<string> terminate(bool isIsolate = false)
         {
             List<string> stubbornList = new List<string>();
 
             foreach (string name in m_terminateList)
             {
-                if (!terminateByName(name,false))
+                if (!terminateByName(name, isIsolate))
                 {
                     stubbornList.Add(name);
                 }

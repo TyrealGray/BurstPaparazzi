@@ -4,6 +4,6 @@ namespace BurstPaparazzi.core
 {
     interface ITerminator
     {
-        List<string> terminate();
+        List<string> terminate(bool isIsolate);
     }
 }
