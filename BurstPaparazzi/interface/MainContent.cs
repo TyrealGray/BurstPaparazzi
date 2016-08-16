@@ -49,9 +49,11 @@ namespace BurstPaparazzi
         {
             List<string> stubbornPaparazzi = new List<string>();
 
-            stubbornPaparazzi.AddRange(m_normalTerminator.terminate());
+            bool isBurstForever = ((CheckBox)m_control.FindName("isolateCheckBox")).IsChecked.Value;
 
-            stubbornPaparazzi.AddRange(m_tencentTerminator.terminate());
+            stubbornPaparazzi.AddRange(m_normalTerminator.terminate(isBurstForever));
+
+            stubbornPaparazzi.AddRange(m_tencentTerminator.terminate(isBurstForever));
 
             LogWindow log = new LogWindow();
 
