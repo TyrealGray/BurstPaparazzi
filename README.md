@@ -7,8 +7,7 @@ A background process really pisses you off?
 Well,let's blow it up!
 
 ##For Example 
-It should work like that if you burst TenioDL.exe forever
-![TenioDLIsBurst](https://raw.githubusercontent.com/TyrealGray/BurstPaparazzi/master/BurstPaparazzi/BurstTenioDL.jpg)
+If you burst TenioDL.exe forever, TenioDL would show on the backups list and you will never see it run again 
 
 
 ##To begin coding
