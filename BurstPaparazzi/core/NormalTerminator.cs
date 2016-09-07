@@ -82,7 +82,8 @@ namespace BurstPaparazzi.core
         static public void isolate(string name)
         {
             string exeName = name + ".exe";
-
+            
+            //TODO ignore check should write in function "terminate" loop
             if (isIgnored(exeName))
             {
                 return;
